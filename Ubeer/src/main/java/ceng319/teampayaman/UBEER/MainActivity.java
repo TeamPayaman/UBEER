@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent x = new Intent(MainActivity.this,ActivityLogin.class);
                 startActivity(x);
                 break;
+            case R.id.button2:
+                Intent y = new Intent(MainActivity.this,ActivityRegister.class);
+                startActivity(y);
+                break;
         }
     }
 }
