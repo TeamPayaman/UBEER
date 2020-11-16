@@ -9,5 +9,11 @@
     <string name="password">Password</string>
     <string name="new_here_create_account">New here? Create Account</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="ubeer_register">Ubeer Register</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="register">Register</string>
+    <string name="already_registered_login_here">Already Registered? Login here</string>
+    <string name="phone">Phone</string>
 
 </resources>
