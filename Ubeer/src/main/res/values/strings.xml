@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UBEER</string>
+    <string name="login">login</string>
+    <string name="sign_up">Signup</string>
+    <string name="created_by_team_payaman_group">Created by:Team Payaman Group</string>
+
+
+</resources>
