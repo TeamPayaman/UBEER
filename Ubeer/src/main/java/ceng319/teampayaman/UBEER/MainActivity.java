@@ -10,8 +10,12 @@ import android.widget.Button;
 import ceng319.teampayaman.UBEER.R;
 
 
+<<<<<<< HEAD
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+=======
+public class MainActivity extends AppCompatActivity  {
+>>>>>>> c2e49778c206cede200e6b845f36521d1d471d12
     private Button button;
     View view;
 
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         Button button1 = findViewById(R.id.button);
         Button button2 = findViewById(R.id.button2);
 
@@ -36,3 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+=======
+    }
+
+}
+
+
+>>>>>>> c2e49778c206cede200e6b845f36521d1d471d12

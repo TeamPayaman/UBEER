@@ -3,12 +3,15 @@
     <string name="login">login</string>
     <string name="sign_up">Signup</string>
     <string name="created_by_team_payaman_group">Created by:Team Payaman Group</string>
+<<<<<<< HEAD
     <string name="ubeer_login">Ubeer Login</string>
     <string name="create_new_account">Create New Account</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="new_here_create_account">New here? Create Account</string>
     <string name="forgot_password">Forgot Password?</string>
+=======
+>>>>>>> c2e49778c206cede200e6b845f36521d1d471d12
 
 
 </resources>
