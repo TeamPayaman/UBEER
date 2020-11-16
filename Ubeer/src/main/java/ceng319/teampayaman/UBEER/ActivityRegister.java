@@ -1,5 +1,5 @@
 package ceng319.teampayaman.UBEER;
-// COMMENT //
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
