@@ -23,5 +23,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         Intent i = new Intent(ActivityLogin.this,ubeermain.class);
         startActivity(i);
+        ();
     }
 }
