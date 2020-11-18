@@ -17,7 +17,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button button = findViewById(R.id.loginbtn);
+        Button button = findViewById(R.id.Loginbtn);
         button.setOnClickListener(this);
     }
     public void onClick(View view) {
