@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 public class AccountFragment extends Fragment {
-//update on home fragment 2.0
+//update 101
 
     public AccountFragment() {
         // Required empty public constructor
