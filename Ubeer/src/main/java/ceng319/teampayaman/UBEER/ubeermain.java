@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 import ceng319.teampayaman.UBEER.R;
-
+//comment new
 public class ubeermain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawer;
     Button buttonh,buttonp,buttona;
