@@ -10,42 +10,43 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:src="@mipmap/ic_launcher"
-        android:id="@+id/Arkloydimage" />
+        android:id="@+id/ubeerimage"
+        android:contentDescription="@string/todo" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/ArkloydtextView1"
+            android:id="@+id/ubeertextView1"
             android:layout_width="174dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Main Title"
+            android:text="@string/main_title"
             android:textColor="#000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/ArkloydtextView2"
+            android:id="@+id/ubeertextView2"
             android:layout_width="206dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Sub Title"
+            android:text="@string/sub_title"
             android:textColor="#a9a9a9"
             android:textSize="15sp"
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/ArkloydcheckBox"
+            android:id="@+id/ubeercheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/ArkloydButtonBuy"
+            android:id="@+id/ubeerButtonBuy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Buy" />
+            android:text="@string/buy" />
 
 
     </LinearLayout>
