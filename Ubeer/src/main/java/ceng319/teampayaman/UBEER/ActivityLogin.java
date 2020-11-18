@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class ActivityLogin extends AppCompatActivity implements View.OnClickListener {
     Button button;
-
+//error practice
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +23,5 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         Intent i = new Intent(ActivityLogin.this,ubeermain.class);
         startActivity(i);
-        ();
-        ();
     }
 }
