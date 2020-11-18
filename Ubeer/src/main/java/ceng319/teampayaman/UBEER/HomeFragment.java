@@ -13,7 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 public class HomeFragment extends Fragment {
-
+//update on home fragrament november 17
 
     public HomeFragment() {
         // Required empty public constructor
