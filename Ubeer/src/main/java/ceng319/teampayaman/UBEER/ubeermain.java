@@ -51,7 +51,7 @@ public class ubeermain extends AppCompatActivity {
                             transaction.replace(R.id.fragment_container, new HomeFragment()).commit();
                         }
                         if(id == R.id.nav_payment){
-                            transaction.replace(R.id.fragment_container, new HomeFragment()).commit();
+
                         }
                         if(id == R.id.nav_account){
 
