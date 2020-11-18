@@ -22,16 +22,17 @@ import android.widget.TextView;
 public class HomeActivity extends AppCompatActivity {
 
     ListView listView;
-    String mTitle[] = {"Apartment#1", "Apartment#2", "Apartment#3", "Apartment#4"};
-    String mDescription[] = {"Apartment\n" +
-            "137 Woodfern Dr, Toronto\n" +
-            "$1000 a month, and 1 toilet and Bath",
-            "\n" + "29 Mansion Ave, Toronto\n" +
-                    "$$990,000",
-            "463 Dawes Rd, Toronto\n" +
-                    "$2,000,000", "2692 Lundene Rd, Mississauga\n" + "$4000 per monthly"};
+    String mTitle[] = {"Hennessy", "Jack Daniel", "St.Remy", "Jagermeister","Captain Morgan","Absolut"};
+    String mDescription[] = {"Liqours\n" +
+            "VS Cognac 1L\n" +
+            "$50",
+            "\n" + "Whiskey 750ml\n" +
+                    "$59.99 ",
+            "VSOP Brandy 1140ml\n" +
+                    "$41.75", "Jagermeister 750ml\n" + "$31.30","\n" + "Spiced Rum 750 ml\n" + "$30.95","Vodka 750ml\n"+"$29.25"};
 
-    int images[] = {R.drawable.hennessy, R.drawable.jackdaniel, R.drawable.stremy, R.drawable.jagermester};
+    int images[] = {R.drawable.hennessy, R.drawable.jackdaniel, R.drawable.stremy,
+            R.drawable.jagermeister, R.drawable.captainmorgan, R.drawable.absolut};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
