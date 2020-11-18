@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 public class ubeermain extends AppCompatActivity {
     DrawerLayout drawer;
     Button buttonh, buttonp, buttona;
+//update
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class ubeermain extends AppCompatActivity {
                         if(id == R.id.nav_payment){
 
                         }
-                        
+
 
                         if(id == R.id.nav_account){
 
