@@ -13,6 +13,7 @@
             android:icon="@drawable/ic_baseline_payment_24"
             android:title="Payment Method" />
 
+
         <item
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_baseline_account_circle_24"

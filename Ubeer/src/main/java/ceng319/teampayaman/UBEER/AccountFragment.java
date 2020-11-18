@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-public class HomeFragment extends Fragment {
+public class AccountFragment extends Fragment {
 //update on home fragment 2.0
 
-    public HomeFragment() {
+    public AccountFragment() {
         // Required empty public constructor
     }
 
