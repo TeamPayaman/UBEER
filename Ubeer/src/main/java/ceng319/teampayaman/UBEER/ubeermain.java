@@ -10,56 +10,37 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+
 
 import com.google.android.material.navigation.NavigationView;
+
 import ceng319.teampayaman.UBEER.R;
-//comment new
-public class ubeermain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+public class ubeermain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     DrawerLayout drawer;
-    Button buttonh,buttonp,buttona;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ubeermain);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        navigationView.bringToFront();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
 
     }
 
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_home:
-                Intent i = new Intent(ubeermain.this,HomeActivity.class);
-                startActivity(i);
-                break;
-
-            case R.id.nav_account:
-                Intent x = new Intent(ubeermain.this,HomeActivity.class);
-                startActivity(x);
-                break;
-            case R.id.nav_payment:
-                Intent z = new Intent(ubeermain.this,HomeActivity.class);
-                startActivity(z);
-                break;
-            case R.id.nav_exit:
-
-                break;
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -67,5 +48,23 @@ public class ubeermain extends AppCompatActivity implements NavigationView.OnNav
         } else {
             super.onBackPressed();
         }
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_home:
+            Intent i = new Intent(ubeermain.this, HomeActivity.class);
+            startActivity(i);
+            break;
+            case R.id.nav_account:
+
+                break;
+            case R.id.nav_payment:
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

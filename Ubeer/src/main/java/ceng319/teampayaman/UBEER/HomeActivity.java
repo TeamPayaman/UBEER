@@ -22,6 +22,7 @@ import android.widget.TextView;
 public class HomeActivity extends AppCompatActivity {
 
     ListView listView;
+
     String mTitle[] = {"Hennessy", "Jack Daniel", "St.Remy", "Jagermeister","Captain Morgan","Absolut"};
     String mDescription[] = {"Liqours\n" +
             "VS Cognac 1L\n" +
@@ -43,7 +44,6 @@ public class HomeActivity extends AppCompatActivity {
 
         MyAdapter adapter = new MyAdapter(this, mTitle, mDescription, images);
         listView.setAdapter(adapter);
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
