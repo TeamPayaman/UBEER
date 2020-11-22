@@ -58,7 +58,7 @@ public class ActivityRegister extends AppCompatActivity {
                                 Toast.makeText(ActivityRegister.this, "Sign up Unsuccessful", Toast.LENGTH_SHORT).show();
                             }
                             else {
-                                startActivity(new Intent ( ActivityRegister.this, HomeActivity.class));
+                                startActivity(new Intent ( ActivityRegister.this, ubeermain.class));
                             }
                         }
                     });

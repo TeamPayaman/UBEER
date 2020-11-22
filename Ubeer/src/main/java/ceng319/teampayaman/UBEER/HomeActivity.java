@@ -15,14 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     ListView listView;
-
+    Button button;
     String mTitle[] = {"Hennessy", "Jack Daniel", "St.Remy", "Jagermeister","Captain Morgan","Absolut"};
     String mDescription[] = {"Liqours\n" +
             "VS Cognac 1L\n" +
@@ -35,6 +36,8 @@ public class HomeActivity extends AppCompatActivity {
     int images[] = {R.drawable.hennessy, R.drawable.jackdaniel, R.drawable.stremy,
             R.drawable.jagermeister, R.drawable.captainmorgan, R.drawable.absolut};
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +45,12 @@ public class HomeActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.ubeerlistview);
 
+
         MyAdapter adapter = new MyAdapter(this, mTitle, mDescription, images);
         listView.setAdapter(adapter);
+
+
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
                     intent.putExtra("title", mTitle[0]);
                     intent.putExtra("description", mDescription[0]);
                     intent.putExtra("position", "" + 0);
+                    button = findViewById(R.id.ubeerButtonBuy);
                     startActivity(intent);
 
 
@@ -95,6 +103,12 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent x = new Intent(HomeActivity.this,ubeermaps.class);
+        startActivity(x);
     }
 
 

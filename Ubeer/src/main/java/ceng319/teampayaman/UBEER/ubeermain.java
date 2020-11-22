@@ -10,9 +10,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import ceng319.teampayaman.UBEER.R;
 
@@ -21,6 +23,7 @@ public class ubeermain extends AppCompatActivity implements NavigationView.OnNav
     DrawerLayout drawer;
     NavigationView navigationView;
     Toolbar toolbar;
+    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,12 @@ public class ubeermain extends AppCompatActivity implements NavigationView.OnNav
 
                 break;
             case R.id.nav_payment:
+                break;
+
+            case R.id.nav_exit:
+                FirebaseAuth.getInstance().signOut();
+                Intent a = new Intent(ubeermain.this, MainActivity.class);
+                startActivity(a);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
