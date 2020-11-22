@@ -2,7 +2,11 @@ package ceng319.teampayaman.UBEER;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,37 +24,51 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import ceng319.teampayaman.UBEER.R;
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     ListView listView;
     Button button;
-    String mTitle[] = {"Hennessy", "Jack Daniel", "St.Remy", "Jagermeister","Captain Morgan","Absolut"};
+    String mTitle[] = {"Hennessy", "Jack Daniel", "St.Remy", "Jagermeister", "Captain Morgan", "Absolut"};
     String mDescription[] = {"Liqours\n" +
             "VS Cognac 1L\n" +
             "$50",
             "\n" + "Whiskey 750ml\n" +
                     "$59.99 ",
             "VSOP Brandy 1140ml\n" +
-                    "$41.75", "Jagermeister 750ml\n" + "$31.30","\n" + "Spiced Rum 750 ml\n" + "$30.95","Vodka 750ml\n"+"$29.25"};
+                    "$41.75", "Jagermeister 750ml\n" + "$31.30", "\n" + "Spiced Rum 750 ml\n" + "$30.95", "Vodka 750ml\n" + "$29.25"};
 
     int images[] = {R.drawable.hennessy, R.drawable.jackdaniel, R.drawable.stremy,
             R.drawable.jagermeister, R.drawable.captainmorgan, R.drawable.absolut};
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+        drawer = findViewById(R.id.drawer_layout);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.bringToFront();
+
         listView = findViewById(R.id.ubeerlistview);
-
-
         MyAdapter adapter = new MyAdapter(this, mTitle, mDescription, images);
         listView.setAdapter(adapter);
 
-
-
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -103,13 +121,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
     }
 
-    @Override
-    public void onClick(View v) {
-        Intent x = new Intent(HomeActivity.this,ubeermaps.class);
-        startActivity(x);
-    }
 
 
     class MyAdapter extends ArrayAdapter<String> {
@@ -126,26 +140,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             this.rDescription = description;
             this.rImages = imgs;
         }
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View row = layoutInflater.inflate(R.layout.list_item_beer, parent, false);
 
-            View row = layoutInflater.inflate(R.layout.list_item_beer, parent, false);
+        ImageView images = row.findViewById(R.id.ubeerimage);
+        TextView myTitle = row.findViewById(R.id.ubeertextView1);
+        TextView myDescription = row.findViewById(R.id.ubeertextView2);
 
-            ImageView images = row.findViewById(R.id.ubeerimage);
-            TextView myTitle = row.findViewById(R.id.ubeertextView1);
-            TextView myDescription = row.findViewById(R.id.ubeertextView2);
+        images.setImageResource(rImages[position]);
+        myTitle.setText(rTitle[position]);
+        myDescription.setText(rDescription[position]);
 
-            images.setImageResource(rImages[position]);
-            myTitle.setText(rTitle[position]);
-            myDescription.setText(rDescription[position]);
-
-            return row;
-        }
-
+        return row;
     }
+
+}
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -153,4 +166,35 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_home:
+                Intent i = new Intent(HomeActivity.this, HomeActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_account:
+
+                break;
+            case R.id.nav_payment:
+                break;
+
+            case R.id.nav_exit:
+                FirebaseAuth.getInstance().signOut();
+                Intent a = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(a);
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

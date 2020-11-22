@@ -10,15 +10,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
-
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import ceng319.teampayaman.UBEER.R;
-
-public class ubeermain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ActivityAccount extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -27,7 +23,7 @@ public class ubeermain extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ubeermain);
+        setContentView(R.layout.activity_account);
 
         drawer = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
@@ -38,8 +34,6 @@ public class ubeermain extends AppCompatActivity implements NavigationView.OnNav
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 
     @Override
@@ -51,28 +45,27 @@ public class ubeermain extends AppCompatActivity implements NavigationView.OnNav
         }
     }
 
-
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.nav_home:
-            Intent i = new Intent(ubeermain.this, HomeActivity.class);
-            startActivity(i);
-            break;
+                Intent i = new Intent(ActivityAccount.this, HomeActivity.class);
+                startActivity(i);
+                break;
             case R.id.nav_account:
-                Intent h = new Intent(ubeermain.this, ActivityAccount.class);
+                Intent h = new Intent(ActivityAccount.this, ActivityAccount.class);
                 startActivity(h);
                 break;
             case R.id.nav_payment:
                 break;
 
             case R.id.nav_exit:
-              FirebaseAuth.getInstance().signOut();
-                Intent a = new Intent(ubeermain.this, MainActivity.class);
+                FirebaseAuth.getInstance().signOut();
+                Intent a = new Intent(ActivityAccount.this, MainActivity.class);
                 startActivity(a);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-}
+    }

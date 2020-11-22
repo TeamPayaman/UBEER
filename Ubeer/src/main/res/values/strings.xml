@@ -23,8 +23,7 @@
     <string name="sub_title">Sub Title</string>
     <string name="buy">Buy</string>
     <string name="todo">TODO</string>
-    <string name="full_name">Full Name</string>
-    <string name="title_activity_ubeermaps">Map</string>
-
+    <string name="your_name" translatable="false">your name</string>
+    <string name="full_name2" translatable="false">Full Name</string>
 
 </resources>

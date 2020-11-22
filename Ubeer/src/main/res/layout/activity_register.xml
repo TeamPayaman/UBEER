@@ -42,7 +42,7 @@
         android:autofillHints=""
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/full_name"
+        android:hint="Full Name"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="#000000"
