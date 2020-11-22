@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ActivityLogin extends AppCompatActivity {
 
     EditText emailId,password;
-    Button btnSignIn;
+    Button btnSignIn,loginBtn;
     TextView tvSignUp;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -36,6 +36,7 @@ public class ActivityLogin extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.loginbtn);
         tvSignUp = findViewById(R.id.createText);
+
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -68,7 +69,7 @@ public class ActivityLogin extends AppCompatActivity {
                 else if(email.isEmpty() && pwd.isEmpty()) {
                     Toast.makeText(ActivityLogin.this, "Fields Are Empty", Toast.LENGTH_SHORT).show();
                 }
-                else if(email.isEmpty() && pwd.isEmpty()){
+                else if(!(email.isEmpty() && pwd.isEmpty())){
                     mFirebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(ActivityLogin.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -76,7 +77,7 @@ public class ActivityLogin extends AppCompatActivity {
                                 Toast.makeText(ActivityLogin.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Intent intToHome = new Intent(ActivityLogin.this,HomeActivity.class);
+                                Intent intToHome = new Intent(ActivityLogin.this,ubeermain.class);
                                 startActivity(intToHome);
                             }
                         }
